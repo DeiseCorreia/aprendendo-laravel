@@ -21,16 +21,21 @@ use App\Http\Controllers\JogosController;
     return view('jogos',['idJogo' => $id, 'nomeJogo'=> $name]);
 })->where('id','[0-9]+','name','[A-Za-z]+'); //retornando o nome de jogos numa view*/
 //->where('name','[A-Za-z]+')
-Route::get('/jogos', [JogosController::class, 'index']);
+/*Route::get('/jogos', [JogosController::class, 'index']);
 
 Route::get('/casa', function () {
     return view('welcome');
 })->name('home-index');
+Route::get('/perfil', function () {
+    return view('perfil');
+})->name('home-index');*/
+
+//mesmo prefixo,ou seja mesmo nome nas rotas
+Route::prefix('jogos')->group(function () {
+    Route::get('/', [JogosController::class, 'index'])->name('jogos-index');
+    Route::get('/create', [JogosController::class, 'create'])->name('jogos-create');
+});
 
 Route::fallback(function () {
     return "Erro ao localizar a rota!";
 });
-
-/*Route::get('/perfil', function () {
-    return view('perfil');
-})->name('home-index');*/
