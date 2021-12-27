@@ -7,7 +7,8 @@
   <div class="container mt-5">
     <h1>Crie um novo jogo</h1>
     <hr>
-    <form action="" method="post">
+    <form action="{{route('jogos-store')}}" method="post">
+      @csrf
         <div class="form-group">
           <div class="form-group">
             <label for="nome">Nome:</label>

@@ -11,6 +11,6 @@
 </head>
 <body>
   <!--exibir o conteudo em outra pagina -->
-    @yield('content')
+  @yield('content')
 </body>
 </html>
